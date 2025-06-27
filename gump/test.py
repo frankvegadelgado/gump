@@ -34,7 +34,7 @@ def main():
     helper.add_argument('-w', '--write', action='store_true', help='write the generated random matrix to a file in the current directory')
     helper.add_argument('-v', '--verbose', action='store_true', help='anable verbose output')
     helper.add_argument('-l', '--log', action='store_true', help='enable file logging')
-    helper.add_argument('--version', action='version', version='%(prog)s 0.0.1')
+    helper.add_argument('--version', action='version', version='%(prog)s 0.0.2')
     
     # Initialize the parameters
     args = helper.parse_args()
@@ -86,12 +86,12 @@ def main():
             utils.println(output, logger, args.log)
         
 
-        logger.info("Our Algorithm with the optimal solution started")
+        logger.info("Our Algorithm with an approximate solution started")
         started = time.time()
         
         novel_result = algorithm.find_clique(graph)
 
-        logger.info(f"Our Algorithm with the optimal solution done in: {(time.time() - started) * 1000.0} milliseconds")
+        logger.info(f"Our Algorithm with an approximate solution done in: {(time.time() - started) * 1000.0} milliseconds")
 
         answer = utils.string_result_format(novel_result, count)
         output = f"{i + 1}-Gump Test: {answer}" 
